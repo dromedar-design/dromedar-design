@@ -35,7 +35,12 @@ const Layout = ({ children }) => {
         <main>{children}</main>
 
         <footer>
-          <form name="contact" method="POST" data-netlify="true">
+          <form
+            action="/thanks"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+          >
             <p>
               <label>
                 Your Name: <input type="text" name="name" />
@@ -48,16 +53,7 @@ const Layout = ({ children }) => {
             </p>
             <p>
               <label>
-                Your Role:{' '}
-                <select name="role[]" multiple>
-                  <option value="leader">Leader</option>
-                  <option value="follower">Follower</option>
-                </select>
-              </label>
-            </p>
-            <p>
-              <label>
-                Message: <textarea name="message"></textarea>
+                <input type="text" name="text" />
               </label>
             </p>
             <p>
