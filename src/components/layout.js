@@ -40,7 +40,10 @@ const Layout = ({ children }) => {
             name="contact"
             method="POST"
             data-netlify="true"
+            netlify-honeypot="bot-field"
           >
+            <input name="form-name" value="contact" type="hidden" />
+
             <p>
               <label>
                 Your Name: <input type="text" name="name" />
