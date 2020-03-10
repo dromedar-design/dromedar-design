@@ -1,0 +1,35 @@
+body {
+  font-family: 'Muli', sans-serif;
+  color: #242539;
+}
+
+.dd-title-container {
+  width: 100vw;
+  height: 80vh;
+}
+
+.dd-title-header {
+  width: 80vh;
+  text-align: center;
+  padding-top: 2vw;
+  display: inline-block;
+  transform-origin: top left;
+  transform: rotate(-90deg) translateX(-100%);
+  font-size: 6vh;
+}
+
+.dd-title {
+  position: relative;
+}
+
+.dd-title:before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: -0.3vw;
+  width: 100%;
+  height: 2.3vw;
+  background: #ef4e6e;
+}

@@ -1,4 +1,4 @@
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -14,6 +14,8 @@ const Header = ({ siteTitle }) => (
         margin: `0 auto`,
         maxWidth: 960,
         padding: `1.45rem 1.0875rem`,
+        display: 'flex',
+        justifyContent: 'space-between',
       }}
     >
       <h1 style={{ margin: 0 }}>
@@ -27,6 +29,18 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+
+      <button
+        onClick={() => {
+          if (window.location.pathname.indexOf('/en') === 0) {
+            navigate(window.location.pathname.replace('/en', ''))
+          } else {
+            navigate('/en' + window.location.pathname)
+          }
+        }}
+      >
+        SWITCH
+      </button>
     </div>
   </header>
 )

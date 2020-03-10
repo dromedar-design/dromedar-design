@@ -8,8 +8,9 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import Helmet from 'react-helmet'
+import '../css/dd.css'
 import Header from './header'
-import './layout.css'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,46 +25,19 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Muli:wght@400;800&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+
+      {false && <Header siteTitle={data.site.siteMetadata.title} />}
+
+      <div>
         <main>{children}</main>
 
-        <footer>
-          <form
-            action="/thanks"
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-          >
-            <input name="form-name" value="contact" type="hidden" />
-
-            <p>
-              <label>
-                Your Name: <input type="text" name="name" />
-              </label>
-            </p>
-            <p>
-              <label>
-                Your Email: <input type="email" name="email" />
-              </label>
-            </p>
-            <p>
-              <label>
-                <input type="text" name="text" />
-              </label>
-            </p>
-            <p>
-              <button type="submit">Send</button>
-            </p>
-          </form>
-        </footer>
+        <footer></footer>
       </div>
     </>
   )
