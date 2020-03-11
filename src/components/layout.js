@@ -11,6 +11,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import '../css/dd.css'
 import Header from './header'
+import Menu from './menu/Menu'
+import './menu/styles.css'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -33,6 +35,8 @@ const Layout = ({ children }) => {
       </Helmet>
 
       {false && <Header siteTitle={data.site.siteMetadata.title} />}
+
+      <Menu />
 
       <div>
         <main>{children}</main>
