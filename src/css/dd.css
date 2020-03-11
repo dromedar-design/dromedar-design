@@ -3,19 +3,25 @@ body {
   color: #242539;
 }
 
-.dd-title-container {
-  width: 100vw;
-  height: 80vh;
+*::selection {
+  background: #fa3165;
+}
+*::-moz-selection {
+  background: #fa3165;
 }
 
-.dd-title-header {
-  width: 80vh;
+.dd-title-container {
+  @apply absolute top-0 left-0;
+
+  width: 100vh;
   text-align: center;
-  padding-top: 2vw;
   display: inline-block;
   transform-origin: top left;
   transform: rotate(-90deg) translateX(-100%);
-  font-size: 6vh;
+  padding-top: 2vh;
+  font-size: 9vh;
+  margin: 0;
+  font-weight: bold;
 }
 
 .dd-title {
@@ -28,8 +34,35 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  margin-bottom: -0.3vw;
   width: 100%;
-  height: 2.3vw;
-  background: #ef4e6e;
+  background: #04acd6;
+  height: 4.5vh;
+}
+
+.dd-logo-container {
+  @apply fixed top-0 left-0 w-full;
+  padding-left: 20vh;
+  max-width: 400px;
+
+  @screen md {
+    @apply max-w-none;
+    height: 70vh;
+  }
+}
+
+.dd-logo {
+  @apply w-full h-full origin-top-left;
+
+  padding-right: 10vw;
+  padding-top: 100px;
+}
+
+.dd-first-block {
+  padding-left: 20vh;
+  max-width: 800px;
+  margin-top: 300px;
+
+  @screen md {
+    margin-top: 75vh;
+  }
 }
