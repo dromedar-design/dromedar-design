@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { Link } from 'gatsby'
 import React from 'react'
 import Layout from '../components/layout'
@@ -10,9 +11,31 @@ const IndexPage = () => (
     <Logo />
 
     <h1 className="dd-title-container">
-      <span className="dd-title">Dromedar Design</span>
+      <motion.span
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+        }}
+        transition={{ delay: 1 }}
+        className="dd-title"
+      >
+        Dromedar Design
+      </motion.span>
     </h1>
-    <div className="dd-first-block">
+    <motion.div
+      initial={{
+        y: 100,
+        opacity: 0,
+      }}
+      animate={{
+        y: 0,
+        opacity: 1,
+      }}
+      transition={{ delay: 1, damping: 15, type: 'spring' }}
+      className="dd-first-block"
+    >
       <h2 className="text-5xl font-bold">Title</h2>
       <p>This is serious text here</p>
       <p>
@@ -21,7 +44,7 @@ const IndexPage = () => (
         quibusdam! Quasi est, ducimus quam ullam perferendis explicabo beatae
         cupiditate nulla obcaecati?
       </p>
-    </div>
+    </motion.div>
     <div style={{ color: 'transparent' }}>
       <h1>Hi magyar oldal</h1>
       <p>Now go build something great.</p>

@@ -40,7 +40,6 @@ const Layout = ({ children }) => {
 
       <div>
         <main>{children}</main>
-
         <footer></footer>
       </div>
     </>

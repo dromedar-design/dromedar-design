@@ -46,23 +46,27 @@ body {
 
   @screen md {
     @apply max-w-none;
-    height: 70vh;
+    padding-right: 20vh;
+    height: 60vh;
   }
 }
 
 .dd-logo {
   @apply w-full h-full origin-top-left;
 
-  padding-right: 10vw;
-  padding-top: 100px;
+  transform-origin: center top;
+  padding-top: 125px;
 }
 
 .dd-first-block {
+  @apply mx-auto;
+
+  max-width: 1000px;
   padding-left: 20vh;
-  max-width: 800px;
   margin-top: 300px;
 
   @screen md {
-    margin-top: 75vh;
+    padding-right: 20vh;
+    margin-top: 70vh;
   }
 }
