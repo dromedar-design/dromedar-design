@@ -1,22 +1,15 @@
-import { useViewportScroll } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
+import { useViewportScroll, useTransform } from 'framer-motion'
+import React from 'react'
 import Svg from './Svg'
 
 export default () => {
   const { scrollY } = useViewportScroll()
-  const [logoStyles, setLogoStyles] = useState({ scale: 1 })
 
-  useEffect(() => {
-    const unsubscribe = scrollY.onChange(n => {
-      const min = window.innerWidth > 500 ? 0.8 : 0.5
+  // TODO: make it work with resize event
+  const scale =
+    window.innerWidth > 767
+      ? useTransform(scrollY, [0, window.innerHeight / 1.75], [1, 0.2])
+      : 0.2
 
-      setLogoStyles({
-        scale: 1 - Math.min(min, (n / window.innerHeight) * 1.4),
-      })
-    })
-
-    return unsubscribe
-  }, [scrollY])
-
-  return <Svg styles={logoStyles} />
+  return <Svg styles={{ scale }} />
 }

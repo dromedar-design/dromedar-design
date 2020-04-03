@@ -36,13 +36,12 @@ const IndexPage = () => (
       transition={{ delay: 1, damping: 15, type: 'spring' }}
       className="dd-first-block"
     >
-      <h2 className="text-5xl font-bold">Title</h2>
-      <p>This is serious text here</p>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis
-        laboriosam molestiae ipsam? Animi ipsa iusto, sequi molestiae similique
-        quibusdam! Quasi est, ducimus quam ullam perferendis explicabo beatae
-        cupiditate nulla obcaecati?
+      <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+        Személyre szabott online megoldások
+      </h2>
+      <p className="text-lg md:text-xl mt-6 leading-relaxed">
+        Minden projekt esetén egyedileg térképezzük fel a lehetőségeket és
+        pontosan a te igényeidnek megfelelő megoldást valósítjuk meg.
       </p>
     </motion.div>
     <div style={{ color: 'transparent' }}>
