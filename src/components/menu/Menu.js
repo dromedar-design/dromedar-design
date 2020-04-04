@@ -1,5 +1,5 @@
-import { motion, useCycle } from 'framer-motion'
-import React, { useRef } from 'react'
+import { motion } from 'framer-motion'
+import React, { useRef, useState } from 'react'
 import { useDimensions } from '../../utils/useDimensions'
 import { MenuToggle } from './MenuToggle'
 import { Navigation } from './Navigation'
@@ -14,9 +14,9 @@ const sidebar = {
     },
   }),
   closed: {
-    clipPath: 'circle(30px at 260px 40px)',
+    clipPath: 'circle(25px at 260px 43px)',
     transition: {
-      delay: 0.5,
+      delay: 0.2,
       type: 'spring',
       stiffness: 400,
       damping: 40,
@@ -25,21 +25,40 @@ const sidebar = {
 }
 
 export default () => {
-  const [isOpen, toggleOpen] = useCycle(false, true)
+  const [state, setState] = useState('closed')
+  const [visible, setVisible] = useState(false)
   const containerRef = useRef(null)
   const { height } = useDimensions(containerRef)
+
+  const toggleState = () => {
+    switch (state) {
+      case 'closed':
+        setVisible(true)
+        setTimeout(() => setState('open'), 1)
+        setTimeout(() => setVisible(true), 501)
+        break
+
+      case 'open':
+        setState('closed')
+        setTimeout(() => setVisible(false), 500)
+        break
+
+      default:
+        throw new Error('invalid state')
+    }
+  }
 
   return (
     <motion.nav
       initial={false}
-      animate={isOpen ? 'open' : 'closed'}
+      animate={state}
       custom={height}
       ref={containerRef}
     >
-      {isOpen && (
+      {visible && (
         <motion.div
           className="dd-menu-shadow"
-          onClick={() => toggleOpen()}
+          onClick={() => toggleState()}
           variants={{
             open: {
               opacity: 0.4,
@@ -51,8 +70,8 @@ export default () => {
         />
       )}
       <motion.div className="background" variants={sidebar} />
-      <Navigation />
-      <MenuToggle toggle={() => toggleOpen()} />
+      {visible && <Navigation />}
+      <MenuToggle toggle={() => toggleState()} />
     </motion.nav>
   )
 }
