@@ -12,13 +12,9 @@ const IndexPage = () => (
 
     <h1 className="dd-title-container">
       <motion.span
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        transition={{ delay: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
         className="dd-title"
       >
         Dromedar Design
@@ -33,7 +29,7 @@ const IndexPage = () => (
         y: 0,
         opacity: 1,
       }}
-      transition={{ delay: 1, damping: 15, type: 'spring' }}
+      transition={{ delay: 2, damping: 15, type: 'spring' }}
       className="dd-first-block"
     >
       <h2 className="text-4xl md:text-5xl font-bold leading-tight">

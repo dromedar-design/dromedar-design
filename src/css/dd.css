@@ -45,7 +45,7 @@ body {
   @screen md {
     padding-left: 20vh;
     padding-right: 20vh;
-    height: 60vh;
+    height: 50vh;
   }
 }
 
@@ -72,6 +72,6 @@ body {
 
     padding-top: 0;
     padding-right: 20vh;
-    margin-top: 70vh;
+    margin-top: 60vh;
   }
 }

@@ -8,7 +8,7 @@ export default () => {
   // TODO: make it work with resize event
   const scale =
     window.innerWidth > 767
-      ? useTransform(scrollY, [0, window.innerHeight / 1.75], [1, 0.2])
+      ? useTransform(scrollY, [0, window.innerHeight / 2], [1, 0.2])
       : 0.2
 
   return <Svg styles={{ scale }} />
