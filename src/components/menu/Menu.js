@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
-import React, { useRef, useState } from 'react'
-import { useDimensions } from '../../utils/useDimensions'
+import React, { useState } from 'react'
 import { MenuToggle } from './MenuToggle'
 import { Navigation } from './Navigation'
+import useWindowSize from '../../utils/useWindowSize'
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -27,8 +27,7 @@ const sidebar = {
 export default () => {
   const [state, setState] = useState('closed')
   const [visible, setVisible] = useState(false)
-  const containerRef = useRef(null)
-  const { height } = useDimensions(containerRef)
+  const { height } = useWindowSize()
 
   const toggleState = () => {
     switch (state) {
@@ -49,12 +48,7 @@ export default () => {
   }
 
   return (
-    <motion.nav
-      initial={false}
-      animate={state}
-      custom={height}
-      ref={containerRef}
-    >
+    <motion.nav initial={false} animate={state} custom={height}>
       {visible && (
         <motion.div
           className="dd-menu-shadow"

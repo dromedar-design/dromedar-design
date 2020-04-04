@@ -27,7 +27,7 @@ export default ({ styles = { scale: 0.2 } }) => {
               fill: '#242539',
             }}
             animate={{
-              fill: '#04ACD6',
+              fill: '#fa3165',
             }}
             transition={{ delay: 1, damping: 14, mass: 1, type: 'spring' }}
           />

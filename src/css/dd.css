@@ -1,6 +1,6 @@
 body {
   font-family: 'Muli', sans-serif;
-  color: #242539;
+  color: #40404c;
 }
 
 *::selection {
@@ -54,6 +54,10 @@ body {
 
   transform-origin: center top;
   padding-top: 125px;
+
+  @media (max-width: 767px) {
+    transform: scale(0.2) !important;
+  }
 }
 
 .dd-first-block {
@@ -65,13 +69,14 @@ body {
 
   padding-top: 15vw;
   max-width: 500px;
+  min-height: 40vh;
 
   @screen md {
-    @apply h-auto;
+    @apply h-auto justify-start;
     max-width: 900px;
 
     padding-top: 0;
     padding-right: 20vh;
-    margin-top: 60vh;
+    margin-top: 65vh;
   }
 }
